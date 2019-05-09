@@ -26,6 +26,7 @@ int main()
 	std::string FireGolemAssets = "..//FireGolemAssets//";
 	std::string LevelAssets = "..//LevelAssets//";
 	std::string Output = "..//Bin//";
+	std::string BrendenFBX = "..//Brenden FBX//";
 
 #pragma endregion
 
@@ -75,7 +76,7 @@ int main()
 	}
 
 	/**************************************************** Mage *************************************************************************/
-	if (true)
+	if (false)
 	{
 		export_skinned_mesh(string(MageAssets + "BattleMage" + ".fbx").c_str(), string(MageAssets + "Mage.bin").c_str());
 		export_bindpose(string(MageAssets + "Idle" + ".fbx").c_str(), string(MageAssets + "MageBind" + ".bin").c_str());
@@ -107,6 +108,24 @@ int main()
 		//export_simple_mesh(string(LevelAssets + "SpikeTrap.fbx").c_str(), string(LevelAssets + "SpikeTrap.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "Pillar.fbx").c_str(), string(LevelAssets + "Pillar.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "Torch.fbx").c_str(), string(LevelAssets + "Torch.bin").c_str());
+	}
+
+	/**************************************************** Brendens mesh's *************************************************************************/
+	if (true)
+	{
+		export_simple_mesh(string(BrendenFBX + string("barrel01.fbx")).c_str(), string(BrendenFBX + string("barrel01.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("barrel02.fbx")).c_str(), string(BrendenFBX + string("barrel02.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("Bookcase.fbx")).c_str(), string(BrendenFBX + string("BookCase.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("Cart.fbx")).c_str(), string(BrendenFBX + string("cart.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("Chair.fbx")).c_str(), string(BrendenFBX + string("chair.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("chest.fbx")).c_str(), string(BrendenFBX + string("chest.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("flag.fbx")).c_str(), string(BrendenFBX + string("logs.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("Rock01.fbx")).c_str(), string(BrendenFBX + string("Rock01.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("Rock02.fbx")).c_str(), string(BrendenFBX + string("Rock02.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("Rock03.fbx")).c_str(), string(BrendenFBX + string("Rock03.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("Sack.fbx")).c_str(), string(BrendenFBX + string("Sack.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("Statue.fbx")).c_str(), string(BrendenFBX + string("Statue.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("Table.fbx")).c_str(), string(BrendenFBX + string("Table.bin")).c_str());
 	}
 
 	/**************************************************** Creating animations in textures *************************************************************************/
