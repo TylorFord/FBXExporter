@@ -95,8 +95,8 @@ namespace end
 
 			XMMATRIX mat = XMMatrixTranslation(0, 0, 3);
 			default_view.world = mat;
-			XMVECTOR eye = { 0.0f, 5, -5 };
-			XMVECTOR at = { 0.0f, 3, 0.0f };
+			XMVECTOR eye = { 0.0f, 15, -15 };
+			XMVECTOR at = { 0.0f, 0, 0.0f };
 			XMVECTOR up{ 0,1,0 };
 			mat = XMMatrixInverse(nullptr, XMMatrixLookAtLH(eye, at, up));
 			default_view.view = mat;
@@ -448,15 +448,15 @@ namespace end
 				exit(0);
 			}
 
-			//const wchar_t* diffusePath  = L"..//MageAssets//battleMage.fbm//PPG_3D_Player_D.png";
-			//const wchar_t* specularPath = L"..//MageAssets//battleMage.fbm//PPG_3D_Player_spec.png";
-			//const wchar_t* emissivePath = L"..//MageAssets//battleMage.fbm//PPG_3D_Player_emissive.png";
-			//const wchar_t* NormalPath	  = L"..//MageAssets//battleMage.fbm//PPG_3D_Player_N.png";
+			const wchar_t* diffusePath  = L"..//MageAssets//battleMage.fbm//PPG_3D_Player_D.png";
+			const wchar_t* specularPath = L"..//MageAssets//battleMage.fbm//PPG_3D_Player_spec.png";
+			const wchar_t* emissivePath = L"..//MageAssets//battleMage.fbm//PPG_3D_Player_emissive.png";
+			const wchar_t* NormalPath	  = L"..//MageAssets//battleMage.fbm//PPG_3D_Player_N.png";
 
-			//const wchar_t* diffusePath  = L"..//MageAssets//Viking.fbm//Diffuse.png";
-			//const wchar_t* specularPath = L"..//MageAssets//Viking.fbm//Specular.png";
+			//const wchar_t* diffusePath  = L"..//MageAssets//Diffuse.png";
+			//const wchar_t* specularPath = L"..//MageAssets//Specular.png";
 			//const wchar_t* emissivePath = nullptr;
-			//const wchar_t* NormalPath	= L"..//MageAssets//Viking.fbm//Normal.png";
+			//const wchar_t* NormalPath	= L"..//MageAssets//Normal.png";
 
 			//const wchar_t* diffusePath = L"..//MageAssets//Enemy_Archer_Diffuse.png";
 			//const wchar_t* specularPath = L"..//MageAssets//Enemy_Archer_Specular.png";
@@ -467,19 +467,19 @@ namespace end
 			//const wchar_t* specularPath = nullptr;
 			//const wchar_t* emissivePath = nullptr;
 
-			const wchar_t* diffusePath = L"..//KnightAssets//paladin_D.png";
-			const wchar_t* specularPath = nullptr;
-			const wchar_t* emissivePath = nullptr;
-			const wchar_t* NormalPath = nullptr; 
+			//const wchar_t* diffusePath = L"..//KnightAssets//paladin_D.png";
+			//const wchar_t* specularPath = nullptr;
+			//const wchar_t* emissivePath = nullptr;
+			//const wchar_t* NormalPath = nullptr; 
 
 			//const wchar_t* diffusePath = L"..//DemonAssets//MAW_diffuse.png";
 			//const wchar_t* specularPath = nullptr;
 			//const wchar_t* emissivePath = nullptr;
 			//const wchar_t* NormalPath = nullptr;
 
-			const char* SkinnedMeshPath = "..//KnightAssets//Knight.bin";
-			const char* BindPosePath	= "..//KnightAssets//KnightBind.bin";
-			const char* AnimationPath	= "..//KnightAssets//KnightWalk.bin";
+			const char* SkinnedMeshPath = "..//MageAssets//Mage.bin";
+			const char* BindPosePath	= "..//MageAssets//MageBind.bin";
+			const char* AnimationPath	= "..//MageAssets//MageHurt.bin";
 
 			// Skinned mesh
 			std::ifstream file(SkinnedMeshPath, std::ios::ios_base::binary);
@@ -600,7 +600,6 @@ namespace end
 			for (size_t i = 0; i < qSize; i++)
 			{
 				animMat = XMMatrixRotationQuaternion(XMLoadFloat4(&animation.frames[0].joints[i].rotation)) * XMMatrixTranslationFromVector(XMLoadFloat4(&animation.frames[0].joints[i].pos));
-				//qs[i] = XMMatrixInverse(nullptr, XMMatrixScaling(2, 2, 2)) * qs[i];
 				matrices[i] =  qs[i] * animMat;
 			}
 
@@ -819,7 +818,7 @@ namespace end
 			context->PSSetSamplers(0, 0, nullptr);
 #pragma endregion
 
-			swapchain->Present(1, 0);
+			swapchain->Present(0, 0);
 		}
 
 		void AnimationStep(int dir)
@@ -837,14 +836,12 @@ namespace end
 
 		void matricesAxis(XMMATRIX mats[3])
 		{
-			XMFLOAT3 pos;
-			XMFLOAT3 axi;
+			XMFLOAT3 pos, axi;
 			for (int i = 0; i < 3; i++)
 			{
 				// x axis
 				XMStoreFloat3(&pos, mats[i].r[3]);
 				XMStoreFloat3(&axi, mats[i].r[0]);
-				//XMStoreFloat3(&axi, XMVector3Normalize(XMLoadFloat3(&axi)));
 				XMStoreFloat3(&axi, XMLoadFloat3(&axi) + XMLoadFloat3(&pos));
 				debug_renderer::add_line(pos, axi, XMFLOAT4(1, 0, 0, 1));
 
@@ -864,12 +861,9 @@ namespace end
 
 		XMMATRIX LookAt(XMVECTOR viewer, XMVECTOR target, XMVECTOR up)
 		{
-			XMVECTOR z = target - viewer;
-			z = XMVector3Normalize(z);
-			XMVECTOR x = XMVector3Cross(z, up);
-			x = XMVector3Normalize(x);
-			XMVECTOR y = XMVector3Cross(x, z);
-			y = XMVector3Normalize(y);
+			XMVECTOR z = XMVector3Normalize(target - viewer);
+			XMVECTOR x = XMVector3Normalize(XMVector3Cross(z,up));
+			XMVECTOR y = XMVector3Normalize(XMVector3Cross(x, z));
 
 			XMMATRIX mat = { -x, y, z, viewer };
 
@@ -881,15 +875,16 @@ namespace end
 			XMMATRIX returnMat = m;
 			XMVECTOR wheretolook = target - m.r[3];
 			wheretolook = XMVector3Normalize(wheretolook);
-			XMVECTOR dotX = XMVector3Dot(wheretolook, m.r[0]);
-			XMVECTOR dotY = XMVector3Dot(wheretolook, m.r[1]);
+			float dotX = XMVector3Dot(wheretolook, m.r[0]).m128_f32[0];
+			float dotY = XMVector3Dot(wheretolook, m.r[1]).m128_f32[0];
+			float dotZ = XMVector3Dot(wheretolook, m.r[2]).m128_f32[0];
+			returnMat = XMMatrixRotationX(XMConvertToRadians(-dotY * speed)) *  returnMat;
 
 			XMVECTOR pos = returnMat.r[3];
 			returnMat.r[3] = { 0, 0, 0 };
-			returnMat *= XMMatrixRotationY(XMConvertToRadians(dotX.m128_f32[0] * speed));
+			returnMat *= XMMatrixRotationY(XMConvertToRadians(dotX* speed));
 			returnMat.r[3] = pos;
 
-			returnMat = XMMatrixRotationX(XMConvertToRadians(-dotY.m128_f32[0] * speed)) *  returnMat;
 
 			return returnMat;
 		}
@@ -914,7 +909,7 @@ namespace end
 		void ClearDebugLines()
 		{
 			debug_renderer::clear_lines();
-			Skeletons();
+	//		Skeletons();
 		}
 
 		void PlayAnimation(bool play)
@@ -933,11 +928,11 @@ namespace end
 			XMFLOAT4 colorToDraw = grey;
 
 
-			float length = 100;
+			float length = 10;
 			float offset = length * 0.5f;
-			for (int i = -offset; i <= offset; i++)
+			for (float i = -offset; i <= offset; i++)
 			{
-				if (i % 10 == 0)
+				if (fmodf(i,10) == 0)
 				{
 					colorToDraw = white;
 				}
@@ -945,8 +940,8 @@ namespace end
 				{
 					colorToDraw = grey;
 				}
-				debug_renderer::add_line(XMFLOAT3(-offset, i, 0), XMFLOAT3(offset, i, 0), colorToDraw, colorToDraw);
-				debug_renderer::add_line(XMFLOAT3(i, -offset,0 ), XMFLOAT3(i, offset,0), colorToDraw, colorToDraw);
+				debug_renderer::add_line(XMFLOAT3(-offset, 0, i), XMFLOAT3(offset, 0, i), colorToDraw);
+				debug_renderer::add_line(XMFLOAT3(i, 0,-offset), XMFLOAT3(i, 0,offset), colorToDraw);
 			}
 		}
 
@@ -1106,7 +1101,7 @@ namespace end
 			if (GetAsyncKeyState(VK_CONTROL))
 				v.view *= XMMatrixTranslation(0, -delta * cameraSpeed, 0);
 
-			if (GetAsyncKeyState(VK_LEFT))
+		/*	if (GetAsyncKeyState(VK_LEFT))
 			{
 				XMVECTOR scale;
 				XMVECTOR pos;
@@ -1135,6 +1130,7 @@ namespace end
 
 			if (GetAsyncKeyState(VK_DOWN))
 				v.view = XMMatrixRotationX(delta * rotationSpeed) * v.view;
+				*/
 		}
 
 		~impl()

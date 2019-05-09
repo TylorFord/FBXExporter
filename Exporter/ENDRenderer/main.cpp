@@ -182,9 +182,9 @@ int CALLBACK WinMain(
 			WndProc(hWnd, msg.message, msg.wParam, msg.lParam);
 			timer.Signal();
 			float deltaT = (float)timer.Delta();
-			float totaltT = (float)timer.TotalTimeExact();
+			float totalT = (float)timer.TotalTimeExact();
 			render.CameraMovement(deltaT);
-			render.DebugGrid(totaltT);
+			render.DebugGrid(totalT);
 
 
 			if (GetAsyncKeyState(VK_OEM_MINUS) & 0x1 && !play)
@@ -193,7 +193,7 @@ int CALLBACK WinMain(
 			}
 			if (GetAsyncKeyState(VK_OEM_PLUS) & 0x1 || play)
 			{
-				render.debug_lines(totaltT);
+				render.debug_lines(totalT);
 			}
 			if (GetAsyncKeyState('P') & 0x1)
 			{
@@ -240,8 +240,10 @@ int CALLBACK WinMain(
 			}
 			//XMVector3Transform
 
-			//matrices[0] = render.LookAt(matrices[0].r[3], matrices[2].r[3], XMVECTOR{ 0,1,0 });
-			//matrices[1] = render.TurnTo(matrices[1], matrices[2].r[3], deltaT * 100);
+			matrices[0] = render.LookAt(matrices[0].r[3], matrices[2].r[3], { 0,1,0 });
+			matrices[1] = render.TurnTo(matrices[1], matrices[2].r[3], deltaT * 100);
+
+			matrices[0] = XMMatrixRotationZ(XMConvertToRadians(deltaT)) * matrices[0];
 			//render.matricesAxis(matrices);
 
 			render.draw();

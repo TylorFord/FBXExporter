@@ -52,45 +52,49 @@ int main()
 	/**************************************************** Archer *************************************************************************/
 	if (false)
 	{
-		export_skinned_mesh	(string(MageAssets + "ArcherAttack.fbx").c_str(), string(MageAssets + "ArcherTest.bin").c_str());
-		export_bindpose		(string(MageAssets + "test_archer_001.fbx").c_str(), string(MageAssets + "ArcherBindTest.bin").c_str());
-		export_animation	(string(MageAssets + "Attack.fbx").c_str(), string(MageAssets + "ArcherAttack.bin").c_str());
-		export_animation	(string(MageAssets + "Hurt.fbx").c_str(), string(MageAssets + "ArcherHurt.bin").c_str());
-		export_animation	(string(MageAssets + "Death.fbx").c_str(), string(MageAssets + "ArcherDeath.bin").c_str());
-		export_animation	(string(MageAssets + "Walk.fbx").c_str(), string(MageAssets + "ArcherWalk.bin").c_str());
-		export_animation	(string(MageAssets + "Idle.fbx").c_str(), string(MageAssets + "ArcherIdle.bin").c_str());
+		export_skinned_mesh	(string(ArcherAssets + "ArcherAttack.fbx").c_str(), string(ArcherAssets + "ArcherTest.bin").c_str());
+		export_bindpose		(string(ArcherAssets + "test_archer_001.fbx").c_str(), string(ArcherAssets + "ArcherBindTest.bin").c_str());
+		export_animation	(string(ArcherAssets + "Attack.fbx").c_str(), string(ArcherAssets + "ArcherAttack.bin").c_str());
+		export_animation	(string(ArcherAssets + "Hurt.fbx").c_str(), string(ArcherAssets + "ArcherHurt.bin").c_str());
+		export_animation	(string(ArcherAssets + "Death.fbx").c_str(), string(ArcherAssets + "ArcherDeath.bin").c_str());
+		export_animation	(string(ArcherAssets + "Walk.fbx").c_str(), string(ArcherAssets + "ArcherWalk.bin").c_str());
+		export_animation	(string(ArcherAssets + "Idle.fbx").c_str(), string(ArcherAssets + "ArcherIdle.bin").c_str());
 	}
 
 	/**************************************************** Knight *************************************************************************/
 	if (false)
 	{
-		export_skinned_mesh(string(KnightAssets + "paladin_idle.fbx").c_str(), string(KnightAssets + "Knight.bin").c_str());
+		//export_skinned_mesh(string(KnightAssets + "paladin_idle.fbx").c_str(), string(KnightAssets + "Knight.bin").c_str());
 		export_bindpose(string(KnightAssets + "paladin_Bind.fbx").c_str(), string(KnightAssets + "KnightBind.bin").c_str());
 		export_animation(string(KnightAssets + "paladin_Idle.fbx").c_str(), string(KnightAssets + "KnightIdle.bin").c_str());
 		export_animation(string(KnightAssets + "paladin_Walk.fbx").c_str(), string(KnightAssets + "KnightWalk.bin").c_str());
 		export_animation(string(KnightAssets + "paladin_attack.fbx").c_str(), string(KnightAssets + "KnightAttack.bin").c_str());
 		export_animation(string(KnightAssets + "paladin_Death.fbx").c_str(), string(KnightAssets + "KnightDeath.bin").c_str());
-		export_animation(string(KnightAssets + "paladin_BlockPose.fbx").c_str(), string(KnightAssets + "KnightBlock.bin").c_str());
+		//export_animation(string(KnightAssets + "paladin_BlockPose.fbx").c_str(), string(KnightAssets + "KnightBlock.bin").c_str());
+		export_animation(string(KnightAssets + "Block.fbx").c_str(), string(KnightAssets + "Block.bin").c_str());
 	}
 
 	/**************************************************** Mage *************************************************************************/
-	if (false)
+	if (true)
 	{
 		export_skinned_mesh(string(MageAssets + "BattleMage" + ".fbx").c_str(), string(MageAssets + "Mage.bin").c_str());
-		//export_bindpose(string(MageAssets + "Idle" + ".fbx").c_str(), string(MageAssets + "MageBind" + ".bin").c_str());
-		//export_animation(string(MageAssets + "Idle" + ".fbx").c_str(), string(MageAssets + "MageIdle" + ".bin").c_str());
-		//export_animation(string(MageAssets + "Walk" + ".fbx").c_str(), string(MageAssets + "MageWalk" + ".bin").c_str());
-		//export_animation(string(MageAssets + "MageAttack" + ".fbx").c_str(), string(MageAssets + "MageAttack" + ".bin").c_str());
-		//export_animation(string(MageAssets + "MageDeath" + ".fbx").c_str(), string(MageAssets + "MageDeath" + ".bin").c_str());
-		//export_animation(string(MageAssets + "run" + ".fbx").c_str(), string(MageAssets + "MageRun" + ".bin").c_str());
+		export_bindpose(string(MageAssets + "Idle" + ".fbx").c_str(), string(MageAssets + "MageBind" + ".bin").c_str());
+		export_animation(string(MageAssets + "Idle" + ".fbx").c_str(), string(MageAssets + "MageIdle" + ".bin").c_str());
+		export_animation(string(MageAssets + "Walk" + ".fbx").c_str(), string(MageAssets + "MageWalk" + ".bin").c_str());
+		export_animation(string(MageAssets + "MageAttack" + ".fbx").c_str(), string(MageAssets + "MageAttack" + ".bin").c_str());
+		export_animation(string(MageAssets + "MageDeath" + ".fbx").c_str(), string(MageAssets + "MageDeath" + ".bin").c_str());
+		export_animation(string(MageAssets + "run" + ".fbx").c_str(), string(MageAssets + "MageRun" + ".bin").c_str());
+		export_animation(string(MageAssets + "MageHurt.fbx").c_str(), string(MageAssets + "MageHurt.bin").c_str());
 	}
 
 	/**************************************************** Other mesh's *************************************************************************/
 	if (false)
 	{
 		//export_simple_mesh(string(LevelAssets + "ParticleQuad.fbx").c_str(), string(LevelAssets + "ParticleQuad.bin").c_str());
-		export_simple_mesh(string(LevelAssets + "Arrow.fbx").c_str(), string(LevelAssets + "Arrow.bin").c_str());
-		export_simple_mesh(string(LevelAssets + "Potion.fbx").c_str(), string(LevelAssets + "Potion.bin").c_str());
+		//export_simple_mesh(string(LevelAssets + "Arrow.fbx").c_str(), string(LevelAssets + "Arrow.bin").c_str());
+		//export_simple_mesh(string(LevelAssets + "Potion.fbx").c_str(), string(LevelAssets + "Potion.bin").c_str());
+		export_simple_mesh(string(LevelAssets + "Firewall.fbx").c_str(), string(LevelAssets + "Firewall.bin").c_str());
+		//export_simple_mesh(string(LevelAssets + "ExportThisToquad.fbx").c_str(), string(LevelAssets + "quad.bin").c_str());
 		//export_simple_mesh(string(MageAssets + "Projectile.fbx").c_str(), string(MageAssets + "Projectile.bin").c_str());
 		//export_simple_mesh(string(MageAssets + "Spawn_Point.fbx").c_str(), string(MageAssets + "Spawn_Point.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "Level1.fbx").c_str(), string(LevelAssets + "Level1.bin").c_str());
@@ -99,33 +103,40 @@ int main()
 		//export_simple_mesh(string(LevelAssets + "Level5.fbx").c_str(), string(LevelAssets + "Level5t.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "Wall.fbx").c_str(), string(LevelAssets + "Wall.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "Door.fbx").c_str(), string(LevelAssets + "Door.bin").c_str());
+		export_simple_mesh(string(LevelAssets + "OpenDoor.fbx").c_str(), string(LevelAssets + "OpenDoor.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "SpikeTrap.fbx").c_str(), string(LevelAssets + "SpikeTrap.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "Pillar.fbx").c_str(), string(LevelAssets + "Pillar.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "Torch.fbx").c_str(), string(LevelAssets + "Torch.bin").c_str());
 	}
 
 	/**************************************************** Creating animations in textures *************************************************************************/
-	if (false)
+	if (true)
 	{
 		const char* pchFilepaths[] =
-		{ "..//FireGolemAssets//FireGolemIdle.bin", "..//FireGolemAssets//FireGolemWalk.bin", "..//FireGolemAssets//FireGolemMelee.bin", "..//FireGolemAssets//FireGolemIdle" , "FireGolem" };
+		{ "..//FireGolemAssets//FireGolemIdle.bin", "..//FireGolemAssets//FireGolemWalk.bin", "..//FireGolemAssets//FireGolemMelee.bin", 
+			"..//FireGolemAssets//FireGolemIdle" , "FireGolem" };
 		//LoadAnimations(pchFilepaths, 3);
 
 		const char* pchFilepaths2[] = 
-		{ "..//MageAssets//MageIdle.bin", "..//MageAssets//MageWalk.bin", "..//MageAssets//MageAttack.bin", "..//MageAssets//MageDeath.bin", "..//MageAssets//Idle" , "Mage" };
-		//LoadAnimations(pchFilepaths2, 4);
+		{ "..//MageAssets//MageIdle.bin", "..//MageAssets//MageWalk.bin", "..//MageAssets//MageAttack.bin", "..//MageAssets//MageDeath.bin", "..//MageAssets//MageHurt.bin",
+		  "..//MageAssets//MageHurt" , "Mage" };
+		LoadAnimations(pchFilepaths2, 5);
 
 		const char* pchFilepaths3[] = 
-		{ "..//MageAssets//VikingIdle.bin", "..//MageAssets//VikingWalk.bin", "..//MageAssets//VikingAttack.bin", "..//MageAssets//VikingDeath.bin", "..//MageAssets//VikingIdle" , "Viking" };
+		{ "..//MageAssets//VikingIdle.bin", "..//MageAssets//VikingWalk.bin", "..//MageAssets//VikingAttack.bin", "..//MageAssets//VikingDeath.bin", 
+			"..//MageAssets//VikingIdle" , "Viking" };
 		//LoadAnimations(pchFilepaths3, 4);
 
 		const char* pchFilepaths4[] =
-		{ "..//MageAssets//ArcherIdle.bin", "..//MageAssets//ArcherWalk.bin", "..//MageAssets//ArcherAttack.bin", "..//MageAssets//ArcherDeath.bin", "..//MageAssets//test_archer_001" , "Archer" };
-		//LoadAnimations(pchFilepaths4, 4);
+		{ 
+			"..//MageAssets//ArcherIdle.bin", "..//MageAssets//ArcherWalk.bin", "..//MageAssets//ArcherAttack.bin", "..//MageAssets//ArcherDeath.bin", "..//MageAssets//ArcherHurt.bin",
+			"..//MageAssets//test_archer_001" , "Archer" };
+		LoadAnimations(pchFilepaths4, 5);
 
 		const char* pchFilepaths5[] =
-		{ "..//KnightAssets//KnightIdle.bin", "..//KnightAssets//KnightWalk.bin", "..//KnightAssets//KnightAttack.bin", "..//KnightAssets//KnightDeath.bin", "..//KnightAssets//paladin_Bind" , "Knight" };
-		LoadAnimations(pchFilepaths5, 4);
+		{ "..//KnightAssets//KnightIdle.bin", "..//KnightAssets//KnightWalk.bin", "..//KnightAssets//KnightAttack.bin", "..//KnightAssets//KnightDeath.bin", "..//KnightAssets//KnightBlock.bin",
+			"..//KnightAssets//paladin_Bind" , "Knight" };
+		LoadAnimations(pchFilepaths5, 5);
 	}
 
 	/**************************************************** Inversing Meshes *************************************************************************/
