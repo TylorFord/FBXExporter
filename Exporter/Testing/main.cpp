@@ -119,7 +119,8 @@ int main()
 		export_simple_mesh(string(BrendenFBX + string("Cart.fbx")).c_str(), string(BrendenFBX + string("cart.bin")).c_str());
 		export_simple_mesh(string(BrendenFBX + string("Chair.fbx")).c_str(), string(BrendenFBX + string("chair.bin")).c_str());
 		export_simple_mesh(string(BrendenFBX + string("chest.fbx")).c_str(), string(BrendenFBX + string("chest.bin")).c_str());
-		export_simple_mesh(string(BrendenFBX + string("flag.fbx")).c_str(), string(BrendenFBX + string("logs.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("logs.fbx")).c_str(), string(BrendenFBX + string("logs.bin")).c_str());
+		export_simple_mesh(string(BrendenFBX + string("flag.fbx")).c_str(), string(BrendenFBX + string("flag.bin")).c_str());
 		export_simple_mesh(string(BrendenFBX + string("Rock01.fbx")).c_str(), string(BrendenFBX + string("Rock01.bin")).c_str());
 		export_simple_mesh(string(BrendenFBX + string("Rock02.fbx")).c_str(), string(BrendenFBX + string("Rock02.bin")).c_str());
 		export_simple_mesh(string(BrendenFBX + string("Rock03.fbx")).c_str(), string(BrendenFBX + string("Rock03.bin")).c_str());
