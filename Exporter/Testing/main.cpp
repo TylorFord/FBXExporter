@@ -53,13 +53,14 @@ int main()
 	/**************************************************** Archer *************************************************************************/
 	if (false)
 	{
-		export_skinned_mesh	(string(ArcherAssets + "ArcherAttack.fbx").c_str(), string(ArcherAssets + "ArcherTest.bin").c_str());
-		export_bindpose		(string(ArcherAssets + "test_archer_001.fbx").c_str(), string(ArcherAssets + "ArcherBindTest.bin").c_str());
-		export_animation	(string(ArcherAssets + "Attack.fbx").c_str(), string(ArcherAssets + "ArcherAttack.bin").c_str());
-		export_animation	(string(ArcherAssets + "Hurt.fbx").c_str(), string(ArcherAssets + "ArcherHurt.bin").c_str());
-		export_animation	(string(ArcherAssets + "Death.fbx").c_str(), string(ArcherAssets + "ArcherDeath.bin").c_str());
-		export_animation	(string(ArcherAssets + "Walk.fbx").c_str(), string(ArcherAssets + "ArcherWalk.bin").c_str());
-		export_animation	(string(ArcherAssets + "Idle.fbx").c_str(), string(ArcherAssets + "ArcherIdle.bin").c_str());
+		export_skinned_mesh(string(ArcherAssets + "ArcherAttack.fbx").c_str(), string(ArcherAssets + "ArcherTest.bin").c_str());
+		export_simple_mesh (string(ArcherAssets + "Arrow.fbx").c_str(), string(ArcherAssets + "Arrow.bin").c_str());
+		export_bindpose	   (string(ArcherAssets + "test_archer_001.fbx").c_str(), string(ArcherAssets + "ArcherBindTest.bin").c_str());
+		export_animation   (string(ArcherAssets + "Attack.fbx").c_str(), string(ArcherAssets + "ArcherAttack.bin").c_str());
+		export_animation   (string(ArcherAssets + "Hurt.fbx").c_str(), string(ArcherAssets + "ArcherHurt.bin").c_str());
+		export_animation   (string(ArcherAssets + "Death.fbx").c_str(), string(ArcherAssets + "ArcherDeath.bin").c_str());
+		export_animation   (string(ArcherAssets + "Walk.fbx").c_str(), string(ArcherAssets + "ArcherWalk.bin").c_str());
+		export_animation   (string(ArcherAssets + "Idle.fbx").c_str(), string(ArcherAssets + "ArcherIdle.bin").c_str());
 	}
 
 	/**************************************************** Knight *************************************************************************/
@@ -95,11 +96,15 @@ int main()
 		//export_simple_mesh(string(LevelAssets + "Arrow.fbx").c_str(), string(LevelAssets + "Arrow.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "Potion.fbx").c_str(), string(LevelAssets + "Potion.bin").c_str());
 		export_simple_mesh(string(LevelAssets + "Firewall.fbx").c_str(), string(LevelAssets + "Firewall.bin").c_str());
+		export_simple_mesh(string(MageAssets + "ChickenSimplemesh2.fbx").c_str(), string(LevelAssets + "Chicken1.bin").c_str());
+		export_simple_mesh(string(MageAssets + "ChickenSimplemesh3.fbx").c_str(), string(LevelAssets + "Chicken2.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "ExportThisToquad.fbx").c_str(), string(LevelAssets + "quad.bin").c_str());
 		//export_simple_mesh(string(MageAssets + "Projectile.fbx").c_str(), string(MageAssets + "Projectile.bin").c_str());
 		//export_simple_mesh(string(MageAssets + "Spawn_Point.fbx").c_str(), string(MageAssets + "Spawn_Point.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "Level1.fbx").c_str(), string(LevelAssets + "Level1.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "Level2.fbx").c_str(), string(LevelAssets + "Level2New.bin").c_str());
+		export_simple_mesh(string(LevelAssets + "Level2.1.fbx").c_str(), string(LevelAssets + "Level2.1.bin").c_str());
+		export_simple_mesh(string(LevelAssets + "FireBall.fbx").c_str(), string(LevelAssets + "FireBall.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "Level3.fbx").c_str(), string(LevelAssets + "Level3.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "Level5.fbx").c_str(), string(LevelAssets + "Level5t.bin").c_str());
 		//export_simple_mesh(string(LevelAssets + "Wall.fbx").c_str(), string(LevelAssets + "Wall.bin").c_str());
@@ -111,7 +116,7 @@ int main()
 	}
 
 	/**************************************************** Brendens mesh's *************************************************************************/
-	if (true)
+	if (false)
 	{
 		export_simple_mesh(string(BrendenFBX + string("barrel01.fbx")).c_str(), string(BrendenFBX + string("barrel01.bin")).c_str());
 		export_simple_mesh(string(BrendenFBX + string("barrel02.fbx")).c_str(), string(BrendenFBX + string("barrel02.bin")).c_str());
@@ -139,7 +144,7 @@ int main()
 
 		const char* pchFilepaths2[] = 
 		{ "..//MageAssets//MageIdle.bin", "..//MageAssets//MageWalk.bin", "..//MageAssets//MageAttack.bin", "..//MageAssets//MageDeath.bin", "..//MageAssets//MageHurt.bin",
-		  "..//MageAssets//MageHurt" , "Mage" };
+		  "..//MageAssets//Idle" , "Mage" };
 		LoadAnimations(pchFilepaths2, 5);
 
 		const char* pchFilepaths3[] = 
@@ -149,8 +154,8 @@ int main()
 
 		const char* pchFilepaths4[] =
 		{ 
-			"..//MageAssets//ArcherIdle.bin", "..//MageAssets//ArcherWalk.bin", "..//MageAssets//ArcherAttack.bin", "..//MageAssets//ArcherDeath.bin", "..//MageAssets//ArcherHurt.bin",
-			"..//MageAssets//test_archer_001" , "Archer" };
+			"..//ArcherAssets//ArcherIdle.bin", "..//ArcherAssets//ArcherWalk.bin", "..//ArcherAssets//ArcherAttack.bin", "..//ArcherAssets//ArcherDeath.bin", "..//ArcherAssets//ArcherHurt.bin",
+			"..//ArcherAssets//test_archer_001" , "Archer" };
 		LoadAnimations(pchFilepaths4, 5);
 
 		const char* pchFilepaths5[] =

@@ -479,7 +479,7 @@ namespace end
 
 			const char* SkinnedMeshPath = "..//MageAssets//Mage.bin";
 			const char* BindPosePath	= "..//MageAssets//MageBind.bin";
-			const char* AnimationPath	= "..//MageAssets//MageHurt.bin";
+			const char* AnimationPath	= "..//MageAssets//Magedeath.bin";
 
 			// Skinned mesh
 			std::ifstream file(SkinnedMeshPath, std::ios::ios_base::binary);
